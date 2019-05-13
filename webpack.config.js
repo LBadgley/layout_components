@@ -1,11 +1,17 @@
+const HtmlPlugin = require('html-webpack-plugin');
+
+//eslint-disable-next-line
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: './dist/main.[hash].js'
+    filename: 'bundle.[hash].js'
   },
   devServer: {
     port: 7890
   },
+  plugins: [
+    new HtmlPlugin({ template: './src/index.html' })
+  ],
   module: {
     rules: [
       {
