@@ -1,29 +1,37 @@
 {
-  "name": "layout_components",
+  "name": "layout-components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>src/setupTests.js"
-    ]
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch",
     "build": "webpack -p --devtool source-map",
-    "start": "webpack-dev-server --hot --mode development --devtool eval-score-map"
+    "start": "webpack-dev-server --hot --mode development --devtool eval-source-map"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LBadgley/layout_components.git"
+    "url": "git+https://github.com/mehtaphysical/layout-components.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LBadgley/layout_components/issues"
+    "url": "https://github.com/mehtaphysical/layout-components/issues"
   },
-  "homepage": "https://github.com/LBadgley/layout_components#readme",
+  "homepage": "https://github.com/mehtaphysical/layout-components#readme",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -53,7 +61,6 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "create-alchemy-react": "^1.0.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
